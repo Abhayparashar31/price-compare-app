@@ -35,7 +35,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Project
 
  <a href="https://github.com/github_Abhayparashar/price-compare-app">
     <img src="images/img.png">   <img src="images/img2.png">
