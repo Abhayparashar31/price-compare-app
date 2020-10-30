@@ -97,7 +97,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - Abhayparashar31
+Name - Abhay Parashar
 
 Project Link: [https://github.com/Abhayparashar31/price-compare-app/](https://github.com/Abhayparashar31/price-compare-app/)
 
