@@ -19,11 +19,11 @@ def flipkart(name):
 
         print("\nSearching in flipkart....")
         soup = BeautifulSoup(res.text,'html.parser')
-        flipkart_name = soup.select('._3wU53n')[0].getText().strip()
+        flipkart_name = soup.select('._4rR01T')[0].getText().strip()  ### New Class For Product Name
         flipkart_name = flipkart_name.upper()
         if name.upper() in flipkart_name:
-            flipkart_price = soup.select('._2rQ-NK')[0].getText().strip()
-            flipkart_name = soup.select('._3wU53n')[0].getText().strip()
+            flipkart_price = soup.select('._1_WHN1')[0].getText().strip()  ### New Class For Product Price
+            flipkart_name = soup.select('._4rR01T')[0].getText().strip()
             print("Flipkart:")
             print(flipkart_name)
             print(flipkart_price)
@@ -60,7 +60,8 @@ def ebay(name):
                     ebay_name = soup.select('.s-item__title')[i].getText().strip()
                     print("Ebay:")
                     print(ebay_name)
-                    print(ebay_price.replace("INR","₹"))
+                    ebay_price = ebay_price.replace("INR","₹")
+                    print(ebay_price)
                     print(info)
                     print("-----------------------")
                     ebay_price=ebay_price[0:14]
@@ -221,7 +222,8 @@ if ebay_price== '0':
     print("No Product found!")
     ebay_price = int(ebay_price)
 else:
-    print("Ebay price:",ebay_price)
+    ebay_price = str(round(float(ebay_price[1:]))*75)
+    print("Ebay price: ₹",ebay_price)
     ebay_price = convert(ebay_price)
 if flipkart_price=='0':
     print("No product found!")
@@ -255,29 +257,33 @@ time.sleep(2)
 
 
 lst = [ebay_price,flipkart_price,amazon_price,croma_price,olx_price]
+#print(lst)
 lst2=[]
 for j in range(0,len(lst)):
     if lst[j]>0:
         lst2.append(lst[j])
-min_price=min(lst2)
+if len(lst2)==0:
+    print("No relative product find in all websites....")
+else:
+    min_price=min(lst2)
 
-print("_______________________________")
-print("\nMinimun Price: ₹",min_price)
-price = {
-    f'{ebay_price}':f"{ebay}",
-    f'{amazon_price}':f'{amazon}',
-    f'{olx_price}':f"{olx}",
-    f'{flipkart_price}':f'{flipkart}',
-    f'{croma_price}':f'{croma}'
-}
-for key, value in price.items():
-    if int(key)==min_price:
-        print ('\nurl:', price[key])
-print("\nUrls:\n")
-print("-----------------------------------------------------------------------")
-print(ebay)
-print(amazon)
-print(olx)
-print(flipkart)
-print(croma)
-print("------------------------------------------------------------------------")
+    print("_______________________________")
+    print("\nMinimun Price: ₹",min_price)
+    price = {
+        f'{ebay_price}':f"{ebay}",
+        f'{amazon_price}':f'{amazon}',
+        f'{olx_price}':f"{olx}",
+        f'{flipkart_price}':f'{flipkart}',
+        f'{croma_price}':f'{croma}'
+    }
+    for key, value in price.items():
+        if int(key)==min_price:
+            print ('\nurl:', price[key])
+    print("\nUrls:\n")
+    print("-----------------------------------------------------------------------")
+    print(ebay)
+    print(amazon)
+    print(olx)
+    print(flipkart)
+    print(croma)
+    print("------------------------------------------------------------------------")
