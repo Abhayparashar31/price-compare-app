@@ -29,7 +29,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Contributers](#contributers)
+* [Contributors](#contributors)
 * [License](#license)
 * [Contact](#contact)
 
@@ -81,9 +81,9 @@ pip install BeautifulSoup
 from bs4 import BeautifulSoup 
 import requests
 ```
-## Contributers
+## Contributors
 
-Abhayparashar31
+ - Abhayparashar31
 
 
 
